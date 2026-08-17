@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="880" viewBox="0 0 920 880" role="img" aria-label="Magpie architecture: one front door, two routing axes, six lenses, a plain-markdown library">
+  <style>
+    .sans { font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; }
+    .mono { font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace; }
+    .ink { fill: #161410; } .dim { fill: #5d594e; } .faint { fill: #8f8a7c; }
+    .gold { fill: #9a7410; } .teal { fill: #0e6f5c; } .violet { fill: #5b3fa8; }
+    .rose { fill: #a8253e; } .blue { fill: #1e4f8f; }
+    .hdr { font-size: 11px; letter-spacing: 1.6px; }
+    .panel { fill: #ffffff; stroke: #d9d4c4; }
+    .panel2 { fill: #fbfaf6; stroke: #d9d4c4; }
+  </style>
+
+  <rect x="1" y="1" width="918" height="878" fill="#f6f4ee" stroke="#1c1a15" stroke-width="2"/>
+
+  <!-- header -->
+  <text x="40" y="52" class="sans ink" font-size="27" font-weight="700" letter-spacing="0.5">&#129718; MAGPIE</text>
+  <text x="40" y="76" class="sans dim" font-size="14">A learning system for your agent &#8212; your knowledge in your files, not our cloud.</text>
+  <text x="40" y="97" class="sans dim" font-size="13" font-style="italic" opacity="0.85">&#8220;Magpies don&#8217;t just admire shiny things. They take them home.&#8221;</text>
+
+  <!-- front door -->
+  <rect x="40" y="122" width="840" height="72" rx="0" fill="#ffffff" stroke="#1c1a15"/>
+  <text x="460" y="153" text-anchor="middle" class="mono" font-size="20"><tspan class="gold">/learn &lt;anything&gt;</tspan><tspan class="faint" font-size="15"> [lens] [--respond]</tspan></text>
+  <text x="460" y="177" text-anchor="middle" class="sans dim" font-size="12.5">one front door &#8212; detect what it is, ask what it is to you, dispatch</text>
+
+  <!-- axis 1 arrow -->
+  <text x="460" y="218" text-anchor="middle" class="sans faint hdr">&#8595;&#160;&#160; AXIS 1 &#183; WHAT IS IT? &#160;&#8594;&#160; CAPTURE ADAPTER (MECHANICS)</text>
+
+  <!-- adapters -->
+  <rect x="40" y="232" width="840" height="96" rx="0" class="panel"/>
+  <text x="64" y="258" class="sans faint hdr">CAPTURE ADAPTERS &#8212; GET THE RAW MATERIAL, ONCE</text>
+  <g>
+    <rect x="64"  y="272" width="123" height="40" rx="0" class="panel2"/>
+    <rect x="197" y="272" width="123" height="40" rx="0" class="panel2"/>
+    <rect x="330" y="272" width="123" height="40" rx="0" class="panel2"/>
+    <rect x="463" y="272" width="123" height="40" rx="0" class="panel2"/>
+    <rect x="596" y="272" width="123" height="40" rx="0" class="panel2"/>
+    <rect x="729" y="272" width="123" height="40" rx="0" class="panel2"/>
+    <text x="125" y="289" text-anchor="middle" class="mono ink" font-size="13">video</text>
+    <text x="258" y="289" text-anchor="middle" class="mono ink" font-size="13">article</text>
+    <text x="391" y="289" text-anchor="middle" class="mono ink" font-size="13">website</text>
+    <text x="524" y="289" text-anchor="middle" class="mono ink" font-size="13">product</text>
+    <text x="657" y="289" text-anchor="middle" class="mono ink" font-size="13">thread</text>
+    <text x="790" y="289" text-anchor="middle" class="mono ink" font-size="13">file</text>
+    <text x="125" y="304" text-anchor="middle" class="sans faint" font-size="9.5">frames + transcript</text>
+    <text x="258" y="304" text-anchor="middle" class="sans faint" font-size="9.5">verbatim text</text>
+    <text x="391" y="304" text-anchor="middle" class="sans faint" font-size="9.5">screens + text</text>
+    <text x="524" y="304" text-anchor="middle" class="sans faint" font-size="9.5">pricing snapshot</text>
+    <text x="657" y="304" text-anchor="middle" class="sans faint" font-size="9.5">social text</text>
+    <text x="790" y="304" text-anchor="middle" class="sans faint" font-size="9.5">docs &#183; PDFs</text>
+  </g>
+
+  <!-- axis 2 arrow -->
+  <text x="460" y="358" text-anchor="middle" class="sans faint hdr">&#8595;&#160;&#160; AXIS 2 &#183; WHAT'S IT TO YOU? &#160;&#8594;&#160; LENS (MEANING)</text>
+
+  <!-- lenses -->
+  <rect x="40" y="372" width="840" height="210" rx="0" class="panel"/>
+  <text x="64" y="398" class="sans faint hdr">SIX LENSES &#8212; RE-RUN OVER RAW ANYTIME; CAPTURE NEVER REPEATS</text>
+
+  <g>
+    <rect x="64" y="412" width="256" height="118" rx="0" class="panel2"/>
+    <text x="80" y="436" class="sans teal hdr" font-size="10.5">LEARN FROM IT</text>
+    <text x="80" y="458" class="mono ink" font-size="13.5">learn</text>
+    <text x="80" y="473" class="sans dim" font-size="11.5">distill &#8212; what changes how you act</text>
+    <text x="80" y="496" class="mono ink" font-size="13.5">research</text>
+    <text x="80" y="511" class="sans dim" font-size="11.5">evidence toward a stated question</text>
+  </g>
+  <g>
+    <rect x="330" y="412" width="256" height="118" rx="0" class="panel2"/>
+    <text x="346" y="436" class="sans violet hdr" font-size="10.5">IMITATE IT</text>
+    <text x="346" y="458" class="mono ink" font-size="13.5">steal</text>
+    <text x="346" y="473" class="sans dim" font-size="11.5">craft playbook &#8212; structure &amp; technique</text>
+    <text x="346" y="496" class="mono ink" font-size="13.5">study</text>
+    <text x="346" y="511" class="sans dim" font-size="11.5">design DNA &#8212; structure, never pixels</text>
+  </g>
+  <g>
+    <rect x="596" y="412" width="256" height="118" rx="0" class="panel2"/>
+    <text x="612" y="436" class="sans rose hdr" font-size="10.5">BEAT IT &#183; PUBLISH IT</text>
+    <text x="612" y="458" class="mono ink" font-size="13.5">rival</text>
+    <text x="612" y="473" class="sans dim" font-size="11.5">living dossier per competitor</text>
+    <text x="612" y="496" class="mono ink" font-size="13.5">content</text>
+    <text x="612" y="511" class="sans dim" font-size="11.5">hook &amp; retention teardown &#8594; angles</text>
+    <text x="612" y="525" class="mono gold" font-size="10">--respond &#8594; drafted take, your voice</text>
+  </g>
+
+  <rect x="64" y="538" width="792" height="30" rx="0" fill="#f9e9ec" stroke="#e0bcc6"/>
+  <text x="460" y="557" text-anchor="middle" class="sans" font-size="12"><tspan class="rose" font-weight="600">rival is different:</tspan><tspan class="dim"> one dossier per competitor, dated snapshots appended &#8212; diffable (&#8220;what changed since June&#8221;)</tspan></text>
+
+  <!-- arrow -->
+  <text x="460" y="610" text-anchor="middle" class="sans faint" font-size="18">&#8595;</text>
+
+  <!-- library -->
+  <rect x="40" y="622" width="840" height="92" rx="0" fill="#edf4f1" stroke="#b9d2c9"/>
+  <text x="64" y="648" class="sans hdr"><tspan class="teal">THE LIBRARY</tspan><tspan class="faint"> &#8212; THE DURABLE CORE &#183; PLAIN MARKDOWN &#183; NO LOCK-IN</tspan></text>
+  <text x="64" y="674" class="mono ink" font-size="13">raw/<tspan class="sans faint" font-size="11.5"> immutable capture&#160;&#160;&#160;</tspan>notes/<tspan class="sans faint" font-size="11.5"> lens sections append&#160;&#160;&#160;</tspan>rivals/<tspan class="sans faint" font-size="11.5"> dated snapshots&#160;&#160;&#160;</tspan>index.md &#183; queue.md &#183; log.md</text>
+  <text x="64" y="697" class="sans dim" font-size="12">greppable &#183; Obsidian-compatible &#183; provenance-stamped: learned, never ground truth</text>
+
+  <!-- footer row -->
+  <rect x="40" y="730" width="410" height="64" rx="0" class="panel"/>
+  <text x="64" y="755" class="sans faint hdr">PAYOFF</text>
+  <text x="64" y="777" class="mono blue" font-size="14">/recall<tspan class="sans dim" font-size="12"> &#8212; ask your own library anything, cited</tspan></text>
+
+  <rect x="470" y="730" width="410" height="64" rx="0" class="panel"/>
+  <text x="494" y="755" class="sans faint hdr">SEAMS &#8212; BRING YOUR OWN</text>
+  <text x="494" y="777" class="sans dim" font-size="12">memory &#183; voice (--respond) &#183; research corpus &#8212; optional, declared</text>
+
+  <text x="460" y="828" text-anchor="middle" class="sans dim" font-size="13" font-style="italic" opacity="0.9">See something shiny? Take it home.</text>
+  <text x="460" y="852" text-anchor="middle" class="sans faint" font-size="11" letter-spacing="1">MIT &#183; THE FILE CONTRACT IS THE PRODUCT</text>
+</svg>
