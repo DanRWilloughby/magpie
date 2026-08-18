@@ -48,7 +48,7 @@ A folder of markdown. That's the whole trick: transcripts, frame manifests, doss
 
 - [x] **The shape** — this README, the architecture, and a visual tour ([HOW-IT-WORKS.html](HOW-IT-WORKS.html), download and open in a browser)
 - [x] **The library** — the file contract ([LIBRARY.md](LIBRARY.md)) + a pre-populated [example library](examples/) you can poke through
-- [ ] **The capture engine** — caption-first video capture in seconds, chapter-aware frames, cost receipts
+- [x] **The capture engine** — caption-first video capture in seconds, chapter-aware frames, cost receipts ([read it](skills/magpie/scripts/capture/))
 - [ ] **The lens system**
 - [ ] **Rival dossiers** + the diff demo
 - [ ] **Maintenance verbs** — doctor, forget, digest + the voice seam
