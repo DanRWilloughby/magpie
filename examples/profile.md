@@ -24,6 +24,7 @@ Positioning and competitive awareness; writing better launch content.
 
 ## Competitor watchlist
 - Tempora — https://example.com/tempora (fictional — demo entry; see rivals/example-competitor.md)
+- Canva — https://www.canva.com/ (substitute, not lookalike: their free invoice generator is what my customers use instead of paying me; see rivals/canva.md)
 
 ## Topics I care about
 time tracking, invoicing, freelancer workflows, pricing pages, AI agents, local-first software, building in public

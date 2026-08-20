@@ -50,7 +50,7 @@ A folder of markdown. That's the whole trick: transcripts, frame manifests, doss
 - [x] **The library** — the file contract ([LIBRARY.md](LIBRARY.md)) + a pre-populated [example library](examples/) you can poke through
 - [x] **The capture engine** — caption-first video capture in seconds, chapter-aware frames, cost receipts ([read it](skills/magpie/scripts/capture/))
 - [x] **The lens system** — same capture, different output: learn, research, steal, rival, content ([read it](skills/magpie/SKILL.md))
-- [ ] **Rival dossiers** + the diff demo
+- [x] **Rival dossiers** + the diff demo — a real teardown, live capture vs a nine-month-old baseline ([read it](examples/rivals/canva.md))
 - [ ] **Maintenance verbs** — doctor, forget, digest + the voice seam
 - [ ] **v0.1** — install via plugin marketplace and skills.sh
 

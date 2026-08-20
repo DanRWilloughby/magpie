@@ -12,6 +12,7 @@
 
 ## rivals
 
+- [[rivals/canva]] — Canva as the substitute giant (real capture: live site + Wayback baseline; AI went adjective→meter) — last snapshot 2026-08-19
 - [[rivals/example-competitor]] — Tempora (fictional demo dossier) — last snapshot 2026-08-17
 
 ## other

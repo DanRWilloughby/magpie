@@ -7,3 +7,4 @@
 - 2026-08-16 · rival · example-competitor · baseline snapshot (fictional demo entry)
 - 2026-08-17 · rival · example-competitor · re-capture snapshot + "What changed" diff (fictional demo entry)
 - 2026-08-17 · index · regenerated index.md (2 notes, 1 dossier)
+- 2026-08-19 · rival · canva · baseline snapshot recovered from Wayback (2025-11-06 crawl) + live snapshot (homepage, pricing, invoice generator — browser capture, text) + "What changed" diff · dossier written
