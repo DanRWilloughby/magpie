@@ -8,7 +8,27 @@ Your AI reads everything and remembers nothing. Claude can watch a video now, re
 
 Magpie fixes that. Everything you feed it lands in a plain-markdown library you own, processed through a lens that matches *why* you're consuming it. No accounts, no cloud. Your knowledge in your files.
 
-**Building this in public all week — v0.1 lands Friday.** Every box below becomes a real commit; watch the repo to follow along.
+**v0.1 is out.** Built in public in one week — every box below is a real commit you can read.
+
+## Install
+
+Pick one:
+
+```bash
+# Claude Code plugin marketplace
+/plugin marketplace add DanRWilloughby/magpie
+/plugin install magpie@magpie
+
+# skills.sh
+npx skills add DanRWilloughby/magpie
+
+# or clone it
+git clone https://github.com/DanRWilloughby/magpie && cd magpie && ./install.sh
+```
+
+Then restart Claude Code and say `/magpie doctor` (checks your setup) and `/magpie start` (one question, builds your profile). Feed it a URL and you're going.
+
+Your library lands at `~/Documents/Magpie` (override with `MAGPIE_LIBRARY`). Reinstalling replaces the skill and never touches your library.
 
 ## Why this exists
 
@@ -52,9 +72,7 @@ A folder of markdown. That's the whole trick: transcripts, frame manifests, doss
 - [x] **The lens system** — same capture, different output: learn, research, steal, rival, content ([read it](skills/magpie/SKILL.md))
 - [x] **Rival dossiers** + the diff demo — a real teardown, live capture vs a nine-month-old baseline ([read it](examples/rivals/canva.md))
 - [x] **Maintenance verbs** — doctor, forget, digest + the voice seam ([read them](skills/magpie/SKILL.md))
-- [ ] **v0.1** — install via plugin marketplace and skills.sh
-
-Install lands with v0.1 on Friday. Until then the checklist ticks as things land, and every tick is a commit you can read.
+- [x] **v0.1** — install via plugin marketplace and skills.sh (see [Install](#install))
 
 ## What Magpie will never do
 

@@ -1,0 +1,9 @@
+{
+  "name": "magpie",
+  "version": "0.1.0",
+  "description": "A plain-markdown memory for everything your AI agent reads and watches. One front door (/magpie), five lenses (learn, research, steal, rival, content), a library you own.",
+  "author": { "name": "Daniel Willoughby", "url": "https://github.com/DanRWilloughby" },
+  "homepage": "https://github.com/DanRWilloughby/magpie",
+  "license": "MIT",
+  "keywords": ["memory", "knowledge-capture", "video", "competitor-analysis", "second-brain", "local-first"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "magpie",
+  "owner": { "name": "Daniel Willoughby", "url": "https://github.com/DanRWilloughby" },
+  "metadata": {
+    "description": "Magpie — a plain-markdown memory for everything your AI agent reads and watches.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "magpie",
+      "source": "./",
+      "description": "Capture videos, articles, sites, and competitors into a durable markdown library through the lens that matches why you're consuming it: learn, research, steal, rival, or content. Includes the caption-first capture engine, living rival dossiers that diff over time, and doctor/forget/digest maintenance verbs.",
+      "version": "0.1.0",
+      "author": { "name": "Daniel Willoughby" },
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["memory", "knowledge-capture", "video", "competitor-analysis", "local-first"]
+    }
+  ]
+}
