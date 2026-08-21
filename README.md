@@ -51,7 +51,7 @@ A folder of markdown. That's the whole trick: transcripts, frame manifests, doss
 - [x] **The capture engine** — caption-first video capture in seconds, chapter-aware frames, cost receipts ([read it](skills/magpie/scripts/capture/))
 - [x] **The lens system** — same capture, different output: learn, research, steal, rival, content ([read it](skills/magpie/SKILL.md))
 - [x] **Rival dossiers** + the diff demo — a real teardown, live capture vs a nine-month-old baseline ([read it](examples/rivals/canva.md))
-- [ ] **Maintenance verbs** — doctor, forget, digest + the voice seam
+- [x] **Maintenance verbs** — doctor, forget, digest + the voice seam ([read them](skills/magpie/SKILL.md))
 - [ ] **v0.1** — install via plugin marketplace and skills.sh
 
 Install lands with v0.1 on Friday. Until then the checklist ticks as things land, and every tick is a commit you can read.

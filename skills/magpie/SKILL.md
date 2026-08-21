@@ -1,6 +1,6 @@
 ---
 name: magpie
-description: Use when the user says /magpie <url-or-path> [lens] [--respond], drops video/article/website/competitor URLs to consume, or asks to "learn this", "watch and learn", "study this video", "tear down this competitor", "add this to my library", or "process my queue". Captures external content into a durable plain-markdown library (default ~/Documents/Magpie) — one capture + purpose-specific lens sections (learn, research, steal, rival, content).
+description: Use when the user says /magpie <url-or-path> [lens] [--respond], drops video/article/website/competitor URLs to consume, or asks to "learn this", "watch and learn", "study this video", "tear down this competitor", "add this to my library", or "process my queue". Captures external content into a durable plain-markdown library (default ~/Documents/Magpie) — one capture + purpose-specific lens sections (learn, research, steal, rival, content) — plus doctor/forget/digest maintenance verbs.
 ---
 
 # Magpie — capture what you consume into a library you own
@@ -18,15 +18,15 @@ Onboarding is ONE question, and it doubles as the first capture demo (derive, do
 1. Ask: **"Drop 1–3 links that represent what you do — your site, LinkedIn, something you made. (Or just tell me in a sentence, or say 'skip'.)"**
 2. **Links path:** capture them with the normal §2 machinery, then DERIVE a draft profile: who they are, what they build/sell, industry, topics they care about, and a seeded competitor watchlist (best guesses, clearly marked as guesses).
    **Free-text path** (no links, or they'd rather talk): take whatever they wrote, then ask AT MOST two short follow-ups, only for what the text didn't cover — typically "who do you compete with, if anyone?" and "who's your audience?" One question at a time, conversational, never a form. Draft the same profile from their answers; if the draft names something you could verify with a quick web search (their company, their space), do one search to sharpen the guesses rather than asking more questions.
-3. Show the draft; ask ONE confirm/edit pass plus one optional question: **"What do you want to get better at?"** (tunes default lenses). Either path, the whole thing stays under ~2 minutes.
+3. Show the draft; ask ONE confirm/edit pass plus one optional question: **"What do you want to get better at?"** (tunes default lenses + digest ranking). Either path, the whole thing stays under ~2 minutes.
 4. Write `<library>/profile.md` from `assets/profile-template.md`. Frontmatter `provenance: user` — this is the ONE file in the library that is the user's OWN context, never LEARNED material.
-5. `skip` is honored: create nothing, never nag. Re-run anytime with `/magpie start` to update.
+5. `skip` is honored: create nothing, never nag; doctor lists the profile as COULD BE ON. Re-run anytime with `/magpie start` to update.
 
-The profile powers everything downstream: steal-vs-rival routing (a watchlist match → suggest Rival), the "vs ours" column in dossiers, and seeding `--respond`.
+The profile powers everything downstream: steal-vs-rival routing (a watchlist match → suggest Rival), the "vs ours" column in dossiers, digest relevance, and seeding `--respond`.
 
 ## 1. Resolve input + lens
 
-- Input: URL(s)/path from the argument, the `start` subcommand (§0), or if none, process `queue.md` top-down.
+- Input: URL(s)/path from the argument, a subcommand (`start` · `doctor` · `forget <slug>` · `digest` — §0/§5), or if none, process `queue.md` top-down.
 - Lens: if named inline (`learn`, `research`, `steal`, `rival`, `content`) use it. If ambiguous, ask ONE question offering the 4 most plausible lenses for this source type:
   **What's this to you?** → `Learn` (distill it) / `Research` (evidence toward a question — ask what question) / `Steal` (craft playbook from someone you admire — NOT a competitor) / `Rival` (competitor teardown → living dossier) / `Content` (hook/retention teardown, angles out; `--respond` drafts a reply). Default when the user says "just process it": Learn.
 - **The steal/rival fork is relationship, not source type:** the same URL can be either. Imitating them → Steal. Competing with them → Rival. When the target is plausibly a competitor and no lens was named, ask — never guess Rival silently.
@@ -61,3 +61,8 @@ Append `## Lens: <name> — <date>` (rival appends to its dossier instead):
 - Add the note's line to `index.md` under its section (`- [[notes/<slug>]] — one-line hook`; dossiers under `## rivals` with last-snapshot date); append one line to `log.md`; remove the entry from `queue.md` if it came from there.
 - If the user has a long-term memory system, offer (never bulk-push) the 0–2 genuinely durable insights, phrased third-person with source attribution.
 
+## 5. Subcommands (doctor · forget · digest)
+
+- **`doctor`** — run `scripts/doctor.sh` (inside this skill's folder) and relay its four-state audit (WORKING / UNVERIFIED / NOT WORKING / COULD BE ON) with fix hints verbatim. Report-only.
+- **`forget <slug>`** — the un-know verb. Show what will be removed first, then: move `raw/<slug>/` and `notes/<slug>.md` (or `rivals/<slug>.md`) to `<library>/.trash/<YYYY-MM-DD>-<slug>/`; delete the index line; log it. Quarantine, never rm — purge `.trash/` manually after 14 days (doctor reminds). Touch nothing else.
+- **`digest`** — scope = everything since the newest file in `digests/` (first run: last 7 days from log.md). Produce: new captures with one-line hooks · the 3 highest cross-capture signals · rival "What changed" blocks · queue state · one "worth revisiting" pick with why. Save to `digests/<YYYY-MM-DD>.md`, log it, and show the digest. A digest is still LEARNED material, never the user's own position.
