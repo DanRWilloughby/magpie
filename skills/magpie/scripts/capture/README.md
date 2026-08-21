@@ -54,4 +54,4 @@ If you configure a Whisper API key (`GROQ_API_KEY` or `OPENAI_API_KEY`, in your 
 python3 tests/test_capture_logic.py
 ```
 
-29 tests, pure functions only — no network, no ffmpeg.
+33 tests, pure functions only — no network, no ffmpeg.
