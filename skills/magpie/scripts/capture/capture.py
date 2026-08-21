@@ -59,27 +59,50 @@ def slugify(title: str, max_len: int = 60) -> str:
 
 # ---------------------------------------------------------------- pipeline
 
+STALE_PARTIAL_AGE_S = 24 * 3600
+
+
+def _cleanup_partials(parent: Path, own: Path | None) -> None:
+    """Remove this run's staging dir plus genuinely stale ones from crashed runs.
+    Sibling captures may be mid-flight in the same parent (concurrent runs share
+    the library's raw/) — never touch a fresh partial that isn't ours."""
+    if own is not None:
+        shutil.rmtree(own, ignore_errors=True)
+    if not parent.exists():
+        return
+    now = time.time()
+    for p in parent.glob(".*.partial"):
+        if p == own:
+            continue
+        try:
+            stale = now - p.stat().st_mtime > STALE_PARTIAL_AGE_S
+        except OSError:
+            continue
+        if stale:
+            shutil.rmtree(p, ignore_errors=True)
+
+
 def capture(source: str, detail: str = "standard", transcript_only: bool = False,
             start: float | None = None, end: float | None = None,
             out_dir: Path | None = None, slug: str | None = None,
             allow_whisper: bool = True, quiet: bool = False) -> dict:
+    state: dict = {}
     try:
         return _capture(source, detail=detail, transcript_only=transcript_only,
                         start=start, end=end, out_dir=out_dir, slug=slug,
-                        allow_whisper=allow_whisper, quiet=quiet)
+                        allow_whisper=allow_whisper, quiet=quiet, _state=state)
     finally:
-        # never leave a hidden partial behind, success or failure
+        # never leave OUR hidden partial behind, success or failure
         base = out_dir or (Path.cwd() / "magpie-capture")
         parent = base.parent if out_dir else base
-        if parent.exists():
-            for p in parent.glob(".*.partial"):
-                shutil.rmtree(p, ignore_errors=True)
+        _cleanup_partials(parent, state.get("partial"))
 
 
 def _capture(source: str, detail: str = "standard", transcript_only: bool = False,
              start: float | None = None, end: float | None = None,
              out_dir: Path | None = None, slug: str | None = None,
-             allow_whisper: bool = True, quiet: bool = False) -> dict:
+             allow_whisper: bool = True, quiet: bool = False,
+             _state: dict | None = None) -> dict:
     t0 = time.time()
     log = (lambda *a: None) if quiet else (lambda *a: print(*a, file=sys.stderr))
 
@@ -94,6 +117,8 @@ def _capture(source: str, detail: str = "standard", transcript_only: bool = Fals
     # Build in a hidden sibling and rename into place at the end, so an
     # interrupted capture never leaves a partial dir that looks like a real one.
     out = final_out.parent / f".{final_out.name}.partial"
+    if _state is not None:
+        _state["partial"] = out
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)

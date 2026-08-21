@@ -9,7 +9,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from capture import estimate_frame_tokens, estimate_transcript_tokens, slugify  # noqa: E402
+from capture import (  # noqa: E402
+    STALE_PARTIAL_AGE_S, _cleanup_partials,
+    estimate_frame_tokens, estimate_transcript_tokens, slugify,
+)
 from media import allocate_candidates, frame_budget, frame_width, hamming  # noqa: E402
 from transcribe import cues_to_markdown, fmt_ts, parse_ts, parse_vtt  # noqa: E402
 
@@ -209,3 +212,44 @@ class TestCaptionTrackSelection(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestCleanupPartials(unittest.TestCase):
+    """Concurrent captures share a parent dir (the library's raw/) — cleanup
+    must never sweep a sibling run's fresh .partial staging dir (2026-08-21)."""
+
+    def setUp(self):
+        import tempfile
+        self._tmp = tempfile.TemporaryDirectory()
+        self.parent = Path(self._tmp.name)
+        self.addCleanup(self._tmp.cleanup)
+
+    def _partial(self, name, age_s=0):
+        import os, time
+        p = self.parent / f".{name}.partial"
+        p.mkdir()
+        (p / "transcript.md").write_text("x")
+        if age_s:
+            old = time.time() - age_s
+            os.utime(p, (old, old))
+        return p
+
+    def test_removes_own_partial(self):
+        own = self._partial("mine")
+        _cleanup_partials(self.parent, own)
+        self.assertFalse(own.exists())
+
+    def test_spares_fresh_sibling_partial(self):
+        own = self._partial("mine")
+        sibling = self._partial("theirs")
+        _cleanup_partials(self.parent, own)
+        self.assertFalse(own.exists())
+        self.assertTrue(sibling.exists())
+
+    def test_sweeps_stale_crashed_partial(self):
+        stale = self._partial("crashed", age_s=STALE_PARTIAL_AGE_S + 60)
+        _cleanup_partials(self.parent, None)
+        self.assertFalse(stale.exists())
+
+    def test_own_none_and_missing_parent_are_safe(self):
+        _cleanup_partials(self.parent / "nope", None)  # no raise
